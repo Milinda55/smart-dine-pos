@@ -1,0 +1,31 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# === React Build Files ===
+client/build/
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+*.iws
+out/
+
+# === OS-specific ===
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# === Logs ===
+*.log
+logs/
+*.log.*
+
+# === Optional ===
+dist/
+coverage/         # if you're using Jest or test coverage tools
+
+# === VSCode (if used) ===
+.vscode/
