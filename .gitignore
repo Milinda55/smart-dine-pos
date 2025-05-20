@@ -25,7 +25,7 @@ logs/
 
 # === Optional ===
 dist/
-coverage/         # if you're using Jest or test coverage tools
+coverage/
 
 # === VSCode (if used) ===
 .vscode/
