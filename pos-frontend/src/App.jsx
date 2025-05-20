@@ -2,11 +2,13 @@ import './App.css'
 import './index.css'
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { Home, Auth, Orders } from './pages'
+import Header from "./components/shared/Header.jsx";
 
 function App() {
   return (
     <>
       <Router>
+          <Header />
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/auth" element={<Auth />} />
