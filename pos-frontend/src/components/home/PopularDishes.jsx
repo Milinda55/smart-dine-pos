@@ -1,4 +1,5 @@
 import React from 'react';
+import {popularDishes} from "../../constants/index.js";
 
 function PopularDishes() {
     return (
@@ -8,8 +9,20 @@ function PopularDishes() {
                     <h1 className="text-[#f5f5f5] text-lg font-semibold tracking-wide">Popular Dishes</h1>
                     <a href="" className="text-[#025cca] text-sm font-semibold">View All</a>
                 </div>
-                <div>
+                <div className="overflow-y-scroll h-[680px] scrollbar-hide">
                     {
+                        popularDishes.map((dish) => {
+                            return (
+                                <div key={dish.id} className="flex items-center gap-4 bg-[#1f1f1f] rounded-[15px] mt-4 mx-6 px-6 py-4">
+                                    <h1 className="text-[#f5f5f5] font-bold text-xl mr-5">{dish.id < 10 ? `0${dish.id}` : dish.id}</h1>
+                                    <img src={dish.image} className="w-[50px] h-[50px] rounded-full" alt={dish.name}/>
+                                    <div>
+                                        <h1 className="text-[#f5f5f5] font-semibold tracking-wide">{dish.name}</h1>
+                                        <p className="text-[#f5f5f5] text-sm font-semibold mt-1"><span className="text-[#ababab]">Orders: </span> {dish.numberOfOrders}</p>
+                                    </div>
+                                </div>
+                            )
+                        })
 
                     }
                 </div>
