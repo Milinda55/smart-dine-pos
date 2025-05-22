@@ -8,11 +8,11 @@ function Header() {
             { /* LOGO */}
             <div className="flex items-center gap-2">
                 <img src={logo} className="h-8 w-8" alt="restro logo"/>
-                <h1 className="text-1g font-semibold text-[#f5f5f5]">Restro</h1>
+                <h1 className="text-1g font-semibold text-[#f5f5f5]">Dine-pos</h1>
             </div>
 
             { /* SEARCH */}
-            <div className="flex items-center gap-4 bg-[#1a1a1a] p-2 rounded-[20px] px-5 py-2 w-[500px]">
+            <div className="flex items-center gap-4 bg-[#1f1f1f] rounded-[15px] px-5 py-2 w-[500px]">
                 <FaSearch className="text-[#f5f5f5]"/>
                 <input
                     type="text"

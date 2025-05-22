@@ -4,6 +4,7 @@ import Greetings from "../components/home/Greetings.jsx";
 import MiniCard from "../components/home/MiniCard.jsx";
 import {BsCashCoin} from "react-icons/bs";
 import {GrInProgress} from "react-icons/gr";
+import RecentOrders from "../components/home/RecentOrders.jsx";
 
 function Home() {
     return (
@@ -15,6 +16,7 @@ function Home() {
                     <MiniCard title="Total Earnings" icon={<BsCashCoin />} number={512} footerNum={1.6} />
                     <MiniCard title="In Progress" icon={<GrInProgress />} number={16} footerNum={3.6} />
                 </div>
+                <RecentOrders />
             </div>
 
             { /* Right Div */ }
