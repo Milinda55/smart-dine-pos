@@ -5,10 +5,12 @@ import MiniCard from "../components/home/MiniCard.jsx";
 import {BsCashCoin} from "react-icons/bs";
 import {GrInProgress} from "react-icons/gr";
 import RecentOrders from "../components/home/RecentOrders.jsx";
+import PopularDishes from "../components/home/PopularDishes.jsx";
 
 function Home() {
     return (
         <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3">
+
             { /* Left Div */ }
             <div className="flex-[3]">
                 <Greetings />
@@ -20,8 +22,8 @@ function Home() {
             </div>
 
             { /* Right Div */ }
-
-            <div className="flex-[2] bg-[#1a1a1a] ">
+            <div className="flex-[2]">
+                <PopularDishes />
             </div>
             <BottomNav />
 
