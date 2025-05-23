@@ -9,7 +9,7 @@ function PopularDishes() {
                     <h1 className="text-[#f5f5f5] text-lg font-semibold tracking-wide">Popular Dishes</h1>
                     <a href="" className="text-[#025cca] text-sm font-semibold">View All</a>
                 </div>
-                <div className="overflow-y-scroll h-[680px] scrollbar-hide">
+                <div className="overflow-y-scroll h-[500px] scrollbar-hide">
                     {
                         popularDishes.map((dish) => {
                             return (
