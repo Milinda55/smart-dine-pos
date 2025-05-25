@@ -73,3 +73,4 @@ export const popularDishes = [
         numberOfOrders: 250,
     }
 ]
+
