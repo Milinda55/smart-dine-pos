@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import BottomNav from "../components/shared/BottomNav.jsx";
 import BackButton from "../components/shared/BackButton.jsx";
 import TableCard from "../components/tables/TableCard.jsx";
+import {tables} from "../constants/index.js";
 
 function Tables() {
 
@@ -20,16 +21,14 @@ function Tables() {
                 </div>
             </div>
 
-            <div className="flex flex-wrap justify-start gap-5 p-10">
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
-                <TableCard />
+            <div className="flex flex-wrap gap-6 px-10 py-4 overflow-y-scroll h-[calc(100vh-5rem-10rem)] scrollbar-hide">
+                {
+                    tables.map((table) => {
+                        return (
+                            <TableCard key={table.id} name={table.name} status={table.status} initials={table.initial} />
+                        )
+                    })
+                }
             </div>
 
             <BottomNav />
