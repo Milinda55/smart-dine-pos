@@ -10,8 +10,20 @@ function BottomNav() {
 
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [guestCount, setGuestCount] = useState(0);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
+
+    const increment = () => {
+        if (guestCount >= 6) return;
+        setGuestCount((prev) => prev + 1);
+    }
+
+    const decrement = () => {
+        if (guestCount <= 0) return;
+        setGuestCount((prev) => prev - 1);
+    }
+
 
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-[#262626] p-2 h-16 flex justify-around">
@@ -37,7 +49,30 @@ function BottomNav() {
 
             <Modal isOpen={isModalOpen} onClose={closeModal} title="Create Order">
                 <div>
-
+                    <label className="block text-[#ababab] mb-2 text-sm font-medium">Customer Name</label>
+                    <div className="flex items-center bg-[#1f1f1f] rounded-lg px-4 p-3">
+                        <input type="text" className="bg-transparent flex-1 text-white focus:outline-none"
+                               placeholder="Enter Customer Name" name="" id=""/>
+                    </div>
+                </div>
+                <div>
+                    <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">Customer Phone</label>
+                    <div className="flex items-center bg-[#1f1f1f] rounded-lg px-4 p-3">
+                        <input type="number" className="bg-transparent flex-1 text-white focus:outline-none"
+                               placeholder="Enter Customer Phone" name="" id=""/>
+                    </div>
+                </div>
+                <div>
+                    <label className="block mt-3 text-[#ababab] mb-2 text-sm font-medium">Guest</label>
+                    <div className="flex items-center justify-between bg-[#1f1f1f] rounded-lg px-4 py-3">
+                        <button onClick={decrement} className="text-yellow-500 text-2xl cursor-pointer">&minus;</button>
+                        <span className="text-white">{guestCount} Person</span>
+                        <button onClick={increment} className="text-yellow-500 text-2xl cursor-pointer">&#43;</button>
+                    </div>
+                    <button onClick={() => navigate("/tables")}
+                            className="bg-[#f68100] text-[#f5f5f5] rounded-lg py-3 w-full mt-8 text-center font-semibold hover:bg-[#f6b100] cursor-pointer">
+                        Create Order
+                    </button>
                 </div>
             </Modal>
 
