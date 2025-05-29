@@ -3,6 +3,7 @@ import BottomNav from "../components/shared/BottomNav.jsx";
 import BackButton from "../components/shared/BackButton.jsx";
 import {FaUserCircle} from "react-icons/fa";
 import {MdRestaurantMenu} from "react-icons/md";
+import MenuContainer from "../components/menu/MenuContainer.jsx";
 
 function Menu() {
 
@@ -30,6 +31,7 @@ function Menu() {
                     </div>
                 </div>
 
+                <MenuContainer />
             </div>
 
             {/*{ Right div }*/}
