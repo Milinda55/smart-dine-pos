@@ -5,6 +5,9 @@ import {FaNotesMedical, FaUserCircle} from "react-icons/fa";
 import {MdRestaurantMenu} from "react-icons/md";
 import MenuContainer from "../components/menu/MenuContainer.jsx";
 import {RiDeleteBin2Fill} from "react-icons/ri";
+import CustomerInfo from "../components/menu/CustomerInfo.jsx";
+import CartInfo from "../components/menu/CartInfo.jsx";
+import Bill from "../components/menu/Bill.jsx";
 
 function Menu() {
 
@@ -37,40 +40,18 @@ function Menu() {
             </div>
 
             {/*{ Right div }*/}
-            <div className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[780px] rounded-lg pt-2">
+            <div className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[570px] rounded-lg pt-2">
                 {/*Customer Info*/}
-                <div className="flex items-center justify-between px-4 py-3">
-                    <div className="flex flex-col items-start">
-                        <h1 className="text-md text-[#f5f5f5] font-semibold tracking-wide">Customer Name</h1>
-                        <p className="text-xs text-[#ababab] font-medium mt-1">#101/Dine in</p>
-                        <p className="text-xs text-[#ababab] font-medium mt-2">January 19, 2025 05:34 PM</p>
-                    </div>
-                    <button className="bg-[#f6b100] p-3 text-xl font-bold rounded-lg">CN</button>
-                </div>
+                <CustomerInfo />
                 <hr className="border-[#333] border-t-2"/>
 
                 {/*Cart Details*/}
-                <div className="px-4 py-2">
-                    <h1 className="text-lg text-[#e4e4e4] font-semibold tracking-wide">Order Details</h1>
-                    <div className="mt-4 overflow-y-scroll h-[380px] scrollbar-hide">
-                        <div className="bg-[#1f1f1f] rounded-lg px-4 mb-2 py-4">
-                            <div className="flex items-center justify-between">
-                                <h1 className="text-[#ababab] font-semibold tracking-wide text-md">Chicken rice</h1>
-                                <p className="text-[#ababab] font-semibold">x2</p>
-                            </div>
-                            <div className="flex items-center justify-between mt-3">
-                                <div className="flex items-center gap-3">
-                                    <RiDeleteBin2Fill className="text-[#ababab] cursor-pointer" size={20}/>
-                                    <FaNotesMedical className="text-[#ababab] cursor-pointer" size={20}/>
-                                </div>
-                                <p className="text-[#f5f5f5] text-md font-bold">Rs.250</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <CartInfo />
+                <hr className="border-[#333] border-t-2"/>
 
                 {/*Bill Details*/}
+                <Bill />
+
             </div>
 
             <BottomNav/>
