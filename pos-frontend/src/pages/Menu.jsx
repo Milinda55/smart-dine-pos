@@ -40,7 +40,7 @@ function Menu() {
             </div>
 
             {/*{ Right div }*/}
-            <div className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[570px] rounded-lg pt-2">
+            <div className="flex-[1] bg-[#1a1a1a] mr-3 h-[600px] pt-2">
                 {/*Customer Info*/}
                 <CustomerInfo />
                 <hr className="border-[#333] border-t-2"/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {RiDeleteBin2Fill} from "react-icons/ri";
 import {FaNotesMedical} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,6 +8,15 @@ function CartInfo() {
 
     const cartData = useSelector((state) => state.cart)
     const dispatch = useDispatch();
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTo({
+                top: scrollRef.current.scrollHeight,
+                behavior: "smooth"})
+        }
+    }, [cartData])
 
     const handleRemove = (id) => {
         dispatch(removeItem(id))
@@ -16,7 +25,7 @@ function CartInfo() {
     return (
         <div className="px-4 py-2">
             <h1 className="text-lg text-[#e4e4e4] font-semibold tracking-wide">Order Details</h1>
-            <div className="mt-4 overflow-y-scroll h-[200px] scrollbar-hide">
+            <div className="mt-4 overflow-y-scroll h-[200px] scrollbar-hide" ref={scrollRef}>
                 {cartData.length === 0 ? (<p className="text-[#ababab] text-lg flex justify-center items-center h-[200px]">Your cart is empty</p>) : cartData.map((item) => {
 
                     return (
