@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import BottomNav from "../components/shared/BottomNav.jsx";
 import BackButton from "../components/shared/BackButton.jsx";
 import {FaNotesMedical, FaUserCircle} from "react-icons/fa";
@@ -8,10 +7,11 @@ import {RiDeleteBin2Fill} from "react-icons/ri";
 import CustomerInfo from "../components/menu/CustomerInfo.jsx";
 import CartInfo from "../components/menu/CartInfo.jsx";
 import Bill from "../components/menu/Bill.jsx";
+import {useSelector} from "react-redux";
 
 function Menu() {
 
-    const [status, setStatus] = useState("All");
+    const customerData = useSelector(state => state.customer);
 
     return (
         <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3">
@@ -28,8 +28,8 @@ function Menu() {
                         <div className="flex items-center gap-3 cursor-pointer">
                             <MdRestaurantMenu className="text-[#f5f5f5] text-4xl"/>
                             <div className="flx flex-col items-start">
-                                <h1 className="text-md text-[#f5f5f5] font-semibold">Customer name</h1>
-                                <p className="text-xs text-[#ababab] font-semibold">Table 1</p>
+                                <h1 className="text-md text-[#f5f5f5] font-semibold tracking-wide">{customerData.customerName || "Customer Name"}</h1>
+                                <p className="text-xs text-[#ababab] font-semibold">{customerData.tableNo || "N/A"}</p>
                             </div>
                         </div>
                     </div>
