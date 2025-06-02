@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function MenuContainer() {
     const [selected, setSelected] = useState(menus[0]);
-    const [itemCounts, setItemCounts] = useState({}); // 👈 Use object to store item counts
+    const [itemCounts, setItemCounts] = useState({});
 
     const increment = (id) => {
         setItemCounts((prev) => {
