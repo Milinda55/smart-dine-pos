@@ -1,6 +1,6 @@
 import React from 'react';
 import {FaCheckDouble} from "react-icons/fa";
-import {getRandomBG} from "../../utils/index.js";
+import {getBgColor} from "../../utils/index.js";
 import {useNavigate} from "react-router-dom";
 
 function TableCard({keys, name, status, initials, seats}) {
@@ -18,7 +18,7 @@ function TableCard({keys, name, status, initials, seats}) {
                 <p className={`${status === "Booked" ? "text-green-600 bg-[#2e4a40]" : "bg-[#664a04] text-white"} px-2 py-1 rounded-lg`}>{status}</p>
             </div>
             <div className="flex items-center justify-center mt-5 mb-9">
-                <h1 className={`${getRandomBG()} text-white rounded-full p-5 text-xl`}>{initials}</h1>
+                <h1 className={`text-white rounded-full p-5 text-xl`} style={{backgroundColor : getBgColor()}}>{initials}</h1>
             </div>
             <p className="text-[#ababab] text-xs">Seats: <span className="text-[#f5f5f5]">{seats}</span></p>
         </div>

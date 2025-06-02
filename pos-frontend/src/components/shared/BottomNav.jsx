@@ -3,12 +3,13 @@ import {FaHome} from "react-icons/fa";
 import {MdOutlineReorder, MdTableBar} from "react-icons/md";
 import {CiCircleMore} from "react-icons/ci";
 import {BiSolidDish} from "react-icons/bi";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Modal from "./Modal.jsx";
 
 function BottomNav() {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [guestCount, setGuestCount] = useState(0);
     const openModal = () => setIsModalOpen(true);
@@ -24,27 +25,32 @@ function BottomNav() {
         setGuestCount((prev) => prev - 1);
     }
 
+    const isActive = (path) => location.pathname === path;
 
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-[#262626] p-2 h-16 flex justify-around">
             <button onClick={() => navigate("/")}
-                    className="flex items-center justify-center text-[#f5f5f5] bg-[#343434] w-[200px] rounded-[20px]">
+                    className={`flex items-center justify-center font-bold ${isActive("/") ? "text-[#f5f5f5] bg-[#343434]" : "text-[#ababab]"} w-[200px] rounded-[20px] hover:bg-[#343434]`}>
                 <FaHome className="inline mr-4" size={20}/>Home
             </button>
             <button onClick={() => navigate("/orders")}
-                    className="flex items-center justify-center text-[#f5f5f5] w-[200px]"><MdOutlineReorder
+                    className={`flex items-center justify-center font-bold ${isActive("/orders") ? "text-[#f5f5f5] bg-[#343434]" : "text-[#ababab]"} w-[200px] rounded-[20px] hover:bg-[#343434]`}>
+                <MdOutlineReorder
                 className="inline mr-4" size={20}/>Orders
             </button>
             <button onClick={() => navigate("/tables")}
-                    className="flex items-center justify-center text-[#f5f5f5] w-[200px]"><MdTableBar
+                    className={`flex items-center justify-center font-bold ${isActive("/tables") ? "text-[#f5f5f5] bg-[#343434]" : "text-[#ababab]"} w-[200px] rounded-[20px] hover:bg-[#343434]`}>
+            <MdTableBar
                 className="inline mr-4" size={20}/>Tables
             </button>
             <button className="flex items-center justify-center text-[#f5f5f5] w-[200px]"><CiCircleMore
                 className="inline mr-4" size={20}/>More
             </button>
 
-            <button onClick={openModal}
-                    className="absolute bottom-6 bg-[#f68100] text-[#f5f5f5] rounded-full p-3 items-center"><BiSolidDish
+            <button
+                disabled={isActive("/tables") || isActive("/menu")}
+                onClick={openModal}
+                    className="absolute bottom-6 bg-[#f68100] text-[#f5f5f5] rounded-full p-3 items-center cursor-pointer"><BiSolidDish
                 size={30}/></button>
 
             <Modal isOpen={isModalOpen} onClose={closeModal} title="Create Order">
