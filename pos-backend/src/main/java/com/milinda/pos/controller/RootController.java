@@ -13,9 +13,9 @@ public class RootController {
     public Map<String, String> getRootMessage() {
 
         // Simulate error for testing
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Something went wrong!");
+//        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Something went wrong!");
 
-//        return Map.of("message", "Hello from POS Server!");
+        return Map.of("message", "Hello from POS Server!");
     }
 
 }
