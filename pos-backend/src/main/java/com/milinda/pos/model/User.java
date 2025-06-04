@@ -2,11 +2,16 @@ package com.milinda.pos.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +19,7 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // or UUID for NoSQL-like feel
-    private Long id;
+    private String id;
 
     @NotBlank(message = "Name is required")
     private String name;
