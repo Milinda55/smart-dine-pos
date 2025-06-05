@@ -2,7 +2,10 @@ package com.milinda.pos.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -40,4 +43,7 @@ public class Order {
         private int quantity;
         private double price;
     }
+
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }
