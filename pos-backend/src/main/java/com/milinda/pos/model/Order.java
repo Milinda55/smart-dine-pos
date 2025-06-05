@@ -3,6 +3,7 @@ package com.milinda.pos.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -46,4 +47,7 @@ public class Order {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @DBRef
+    private Table table;
 }
