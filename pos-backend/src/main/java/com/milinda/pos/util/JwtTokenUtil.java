@@ -39,4 +39,9 @@ public class JwtTokenUtil {
                 .parseClaimsJws(token)
                 .getBody();
     }
+
+    public String getUserIdFromToken(String token) {
+        return validateToken(token).getSubject();
+    }
+
 }
