@@ -1,6 +1,7 @@
 import React from 'react';
 import restaurant from "../assets/images/restaurant.jpg";
 import logo from "../assets/images/logo.png"
+import Register from "../components/auth/Register.jsx";
 
 function Auth() {
     return (
@@ -28,7 +29,7 @@ function Auth() {
             </div>
 
             { /* Right Section */ }
-            <div className="w-1/3 min-h-screen bg-[#1a1a1a] p-10 overflow-y-auto">
+            <div className="w-1/3 h-screen bg-[#1a1a1a] p-10 overflow-y-auto">
                 <div className="flex flex-col items-center gap-2">
                     <img src={logo} alt="Restro Logo" className="h-16 border-2 border-gray-600 rounded-full p-1" />
                     <h1 className="text-lg  font-semibold text-[#f5f5f5] tracking-wide">Restro</h1>
@@ -40,7 +41,7 @@ function Auth() {
 
                 { /* Components */ }
 
-                { /* Register */ }
+                <Register />
 
                 <div className="flex justify-center mt-6">
                     <p className="text-sm text-[#ababab]">
