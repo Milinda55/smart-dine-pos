@@ -29,13 +29,13 @@ function Auth() {
             </div>
 
             { /* Right Section */ }
-            <div className="w-1/3 h-screen bg-[#1a1a1a] p-10 overflow-y-auto">
+            <div className="w-1/3 h-screen bg-[#1a1a1a] p-5 px-10 overflow-y-auto">
                 <div className="flex flex-col items-center gap-2">
                     <img src={logo} alt="Restro Logo" className="h-16 border-2 border-gray-600 rounded-full p-1" />
                     <h1 className="text-lg  font-semibold text-[#f5f5f5] tracking-wide">Restro</h1>
                 </div>
 
-                <h2 className="text-2xl text-center mt-5 font-semibold text-yellow-400 mb-5">
+                <h2 className="text-2xl text-center mt-2 font-semibold text-yellow-400 mb-5">
                     Employee Registration
                 </h2>
 
@@ -43,7 +43,7 @@ function Auth() {
 
                 <Register />
 
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-3">
                     <p className="text-sm text-[#ababab]">
                         Already have an account?
                         <a className="text-yellow-400 font-semibold ml-2 hover:underline" href="#">
