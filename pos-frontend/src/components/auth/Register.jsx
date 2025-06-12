@@ -110,7 +110,7 @@ function Register() {
                         })}
                     </div>
                 </div>
-                <button type="submit" className="w-full rounded-lg mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold" >
+                <button type="submit" className="w-full rounded-lg mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold cursor-pointer" >
                     Sign up
                 </button>
             </form>
