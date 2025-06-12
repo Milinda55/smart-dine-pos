@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {useMutation} from "@tanstack/react-query";
+import {login} from "../../https/index.js";
 
 function Login() {
 
@@ -13,8 +15,19 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        loginMutation.mutate(formData);
     }
+
+    const loginMutation = useMutation({
+        mutationFn: (reqData) => login(reqData),
+        onSuccess: (res) => {
+            const {data} = res;
+            console.log(data);
+        },
+        onError: (error) => {
+            console.log(error)
+        }
+    })
 
     return (
         <div>
@@ -44,7 +57,7 @@ function Login() {
                 <div className="flex item-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
                     <input type="password"
                            name="password"
-                           value={formData.password}
+                           value={formData.password }
                            onChange={handleChange}
                            placeholder="Enter password"
                            className='bg-transparent flex-1 text-white focus:outline-none'
