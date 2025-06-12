@@ -93,7 +93,7 @@ export const tables = [
         id: 3,
         name: 'Table 3',
         status: 'Booked',
-        initial: 'JS',
+        initial: 'KB',
         seats: 5
     },
     {
