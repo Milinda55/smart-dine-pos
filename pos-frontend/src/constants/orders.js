@@ -1,0 +1,38 @@
+export const orders = [
+    {
+        id: "101",
+        customer: "Milinda Karunaratne",
+        status: "Ready",
+        dateTime: "January 18, 2025 08:32 PM",
+        items: 8,
+        tableNo: 3,
+        total: 250.0,
+    },
+    {
+        id: "102",
+        customer: "Suranga Sampath",
+        status: "In Progress",
+        dateTime: "January 18, 2025 08:45 PM",
+        items: 5,
+        tableNo: 4,
+        total: 180.0,
+    },
+    {
+        id: "103",
+        customer: "Kasun Udara",
+        status: "Ready",
+        dateTime: "January 18, 2025 09:00 PM",
+        items: 3,
+        tableNo: 5,
+        total: 120.0,
+    },
+    {
+        id: "104",
+        customer: "Sumith Perera",
+        status: "In Progress",
+        dateTime: "January 18, 2025 09:15 PM",
+        items: 6,
+        tableNo: 6,
+        total: 220.0,
+    },
+];
