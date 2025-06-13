@@ -4,9 +4,11 @@ import {BrowserRouter as Router, Navigate, Route, Routes, useLocation} from "rea
 import {Home, Auth, Orders, Tables, Menu} from './pages'
 import Header from "./components/shared/Header.jsx";
 import {useSelector} from "react-redux";
+import useLoadData from "./hooks/useLoadData.js";
 
 function Layout() {
     const location = useLocation();
+    useLoadData();
     const hideHeaderRoutes = ["/auth"];
     const { isAuth } = useSelector(state => state.user)
 
@@ -19,7 +21,7 @@ function Layout() {
                         <Home />
                     </ProtectedRoutes>
                 } />
-                
+
                 <Route path="/auth" element={isAuth ? <Navigate to="/" /> : <Auth /> } />
 
                 <Route path="/orders" element={
@@ -48,7 +50,6 @@ function ProtectedRoutes({children}) {
     if (!isAuth) {
         return <Navigate to={"/auth"} />
     }
-
     return children;
 }
 
