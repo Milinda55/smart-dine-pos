@@ -26,9 +26,40 @@ function Model({setIsTableModelOpen}) {
                     </button>
                 </div>
 
+                {/*Model Body*/}
+                <form className="space-y-4 mt-10">
+                    <div>
+                        <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+                            Table Number
+                        </label>
+                    </div>
+                    <div className="flex item-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
+                        <input type="number"
+                               name="tableNo"
+                               className='bg-transparent flex-1 text-white focus:outline-none'
+                               required
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+                            Number of Seats
+                        </label>
+                    </div>
+                    <div className="flex item-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
+                        <input type="number"
+                               name="seats"
+                               className='bg-transparent flex-1 text-white focus:outline-none'
+                               required
+                        />
+                    </div>
+                    <button type="submit" className="w-full rounded-lg mt-6 py-3 text-lg bg-yellow-400 text-gray-900 font-bold cursor-pointer" >
+                        Add Table
+                    </button>
+                </form>
+
+
             </motion.div>
-
-
         </div>
     );
 }
