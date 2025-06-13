@@ -118,6 +118,26 @@ public class UserController {
         }
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response) {
+        // Clear the accessToken cookie
+        ResponseCookie cookie = ResponseCookie.from("accessToken", "")
+                .httpOnly(true)
+                .secure(true)
+                .path("/")
+                .maxAge(0)
+                .sameSite("Lax")
+                .build();
+
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
+        return ResponseEntity.ok()
+                .body(Map.of(
+                        "success", true,
+                        "message", "User logged out successfully"
+                ));
+    }
+
     @GetMapping
     public ResponseEntity<?> getUserData() {
         // Get user from security context
