@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {MdCategory, MdTableBar} from "react-icons/md";
 import {BiSolidDish} from "react-icons/bi";
 import {Meta} from "react-router-dom";
@@ -13,6 +13,9 @@ const buttons = [
 const tabs = ["Metrics", "Orders", "Payments"];
 
 function Dashboard() {
+
+    const [activeTab, setActiveTab] = useState("Metrics")
+
     return (
         <div className="bg-[#1f1f1f] h-[calc(100vh-5rem)]">
             <div className="container mx-auto flex items-center justify-between py-14 px-6 md:px-4">
@@ -30,7 +33,7 @@ function Dashboard() {
                 <div className="flex items-center gap-3">
                     {tabs.map((tab) => {
                         return (
-                            <button className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2">
+                            <button onClick={() => setActiveTab(tab)} className={`px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2 ${activeTab === tab ? "bg-[#262626]" : "bg-[#1a1a1a] hover:bg-[#262626]"}`}>
                                 {tab}
                             </button>
                         );
@@ -38,8 +41,9 @@ function Dashboard() {
                     }
                 </div>
             </div>
-            <Metrics />
-            <RecentOrders />
+            {activeTab === "Metrics" && <Metrics />}
+            {activeTab === "Orders" && <RecentOrders />}
+
         </div>
     );
 }
