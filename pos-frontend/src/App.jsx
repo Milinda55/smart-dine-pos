@@ -6,6 +6,7 @@ import Header from "./components/shared/Header.jsx";
 import {useSelector} from "react-redux";
 import useLoadData from "./hooks/useLoadData.js";
 import FullScreenLoader from "./components/shared/FullScreenLoader.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 function Layout() {
     const location = useLocation();
@@ -40,6 +41,11 @@ function Layout() {
                 <Route path="/menu" element={
                     <ProtectedRoutes>
                         <Menu />
+                    </ProtectedRoutes>
+                } />
+                <Route path="/dashboard" element={
+                    <ProtectedRoutes>
+                        <Dashboard />
                     </ProtectedRoutes>
                 } />
                 <Route path="*" element={<div>Not Found</div>} />
