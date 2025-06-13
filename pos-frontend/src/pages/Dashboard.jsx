@@ -4,6 +4,7 @@ import {BiSolidDish} from "react-icons/bi";
 import {Meta} from "react-router-dom";
 import Metrics from "../components/dashboard/Metrics.jsx";
 import RecentOrders from "../components/dashboard/RecentOrders.jsx";
+import Model from "../components/dashboard/Model.jsx";
 
 const buttons = [
     { label: "Add Table", icon: <MdTableBar />, action: "table" },
@@ -14,7 +15,11 @@ const tabs = ["Metrics", "Orders", "Payments"];
 
 function Dashboard() {
 
-    const [activeTab, setActiveTab] = useState("Metrics")
+    const [isTableModelOpen, setIsTableModelOpen] = useState(false)
+    const [activeTab, setActiveTab] = useState("Metrics");
+    const handleOpenModel = (action) => {
+        if (action === "table") setIsTableModelOpen(true)
+    }
 
     return (
         <div className="bg-[#1f1f1f] h-[calc(100vh-5rem)]">
@@ -22,7 +27,7 @@ function Dashboard() {
                 <div className="flex items-center gap-3">
                     {buttons.map(({label, icon, action}) => {
                         return (
-                            <button className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2">
+                            <button onClick={() => handleOpenModel(action)} className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2">
                                 {label} {icon}
                             </button>
                         );
@@ -43,6 +48,8 @@ function Dashboard() {
             </div>
             {activeTab === "Metrics" && <Metrics />}
             {activeTab === "Orders" && <RecentOrders />}
+
+            {isTableModelOpen && <Model setIsTableModelOpen={setIsTableModelOpen} />}
 
         </div>
     );
