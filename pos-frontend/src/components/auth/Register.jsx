@@ -1,6 +1,14 @@
 import React, {useState} from 'react';
+import {useMutation} from "@tanstack/react-query";
+import {login, logout, register} from "../../https/index.js";
+import {removeUser, setUser} from "../../redux/slices/userSlice.js";
+import {enqueueSnackbar} from "notistack";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 function Register() {
+
+    const [isRegister, setIsRegister] = useState(false);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -16,12 +24,35 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        registerMutation.mutate(formData)
     }
 
     const handleRoleSelection = (selectedRole) => {
         setFormData({...formData, role: selectedRole})
     }
+
+    const registerMutation = useMutation({
+        mutationFn: (reqData) => register(reqData),
+        onSuccess: (res) => {
+            const {data} = res;
+            enqueueSnackbar(data.message, { variant: "success"});
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                password: "",
+                role: ""
+            });
+
+            setTimeout(() => {
+                setIsRegister(false)
+            }, 1500)
+        },
+        onError: (error) => {
+            const { response } = error;
+            enqueueSnackbar(response.data.message, { variant: "error"})
+        }
+    })
 
     return (
         <div>
