@@ -1,12 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import {IoMdClose} from "react-icons/io";
+import {useMutation} from "@tanstack/react-query";
+import {addTable} from "../../https/index.js";
+import {enqueueSnackbar} from "notistack";
 
 function Model({setIsTableModelOpen}) {
+
+    const [tableData, setTableData] = useState({
+        tableNo: "",
+        seats: ""
+    })
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setTableData((prev) => ({...prev, [name]: value}))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(tableData);
+        tableMutation.mutate(tableData)
+    }
 
     const handleCloseModal = () => {
         setIsTableModelOpen(false)
     }
+
+    const tableMutation = useMutation({
+        mutationFn: (reqData) => addTable(reqData),
+        onSuccess: (data) => {
+            setIsTableModelOpen(false);
+            enqueueSnackbar(data.message, { variant: "success"})
+            console.log(data)
+        },
+        onError: (error) => {
+            const { data } = error.response
+            enqueueSnackbar(data.message, { variant: "error"})
+            console.log(error);
+        }
+    })
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -27,7 +60,7 @@ function Model({setIsTableModelOpen}) {
                 </div>
 
                 {/*Model Body*/}
-                <form className="space-y-4 mt-10">
+                <form onSubmit={handleSubmit} className="space-y-4 mt-10">
                     <div>
                         <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
                             Table Number
@@ -36,6 +69,8 @@ function Model({setIsTableModelOpen}) {
                     <div className="flex item-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
                         <input type="number"
                                name="tableNo"
+                               value={tableData.tableNo}
+                               onChange={handleInputChange}
                                className='bg-transparent flex-1 text-white focus:outline-none'
                                required
                         />
@@ -49,6 +84,8 @@ function Model({setIsTableModelOpen}) {
                     <div className="flex item-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
                         <input type="number"
                                name="seats"
+                               value={tableData.seats}
+                               onChange={handleInputChange}
                                className='bg-transparent flex-1 text-white focus:outline-none'
                                required
                         />

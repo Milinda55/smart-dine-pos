@@ -27,7 +27,7 @@ function Dashboard() {
                 <div className="flex items-center gap-3">
                     {buttons.map(({label, icon, action}) => {
                         return (
-                            <button onClick={() => handleOpenModel(action)} className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2">
+                            <button  key={label} onClick={() => handleOpenModel(action)} className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2">
                                 {label} {icon}
                             </button>
                         );
@@ -38,7 +38,7 @@ function Dashboard() {
                 <div className="flex items-center gap-3">
                     {tabs.map((tab) => {
                         return (
-                            <button onClick={() => setActiveTab(tab)} className={`px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2 ${activeTab === tab ? "bg-[#262626]" : "bg-[#1a1a1a] hover:bg-[#262626]"}`}>
+                            <button  key={tab} onClick={() => setActiveTab(tab)} className={`px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2 ${activeTab === tab ? "bg-[#262626]" : "bg-[#1a1a1a] hover:bg-[#262626]"}`}>
                                 {tab}
                             </button>
                         );

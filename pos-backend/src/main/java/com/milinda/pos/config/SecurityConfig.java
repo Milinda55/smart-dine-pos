@@ -37,6 +37,7 @@ public class SecurityConfig {
                                 "/api/user/register",
                                 "/api/user/login",
                                 "/api/user/logout",
+                                "/api/table",
                                 "/error"
                         ).permitAll()
 

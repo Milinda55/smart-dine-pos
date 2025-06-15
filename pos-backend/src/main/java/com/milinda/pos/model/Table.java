@@ -18,6 +18,8 @@ public class Table {
 
     private String status = "Available";
 
+    private Integer seats;
+
     @DBRef
     private Order currentOrder;
 
