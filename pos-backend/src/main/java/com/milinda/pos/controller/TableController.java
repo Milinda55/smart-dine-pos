@@ -50,7 +50,10 @@ public class TableController {
 
     @GetMapping
     public ResponseEntity<List<Table>> getTables() {
-        return ResponseEntity.ok(tableRepository.findAll());
+        List<Table> tables = tableRepository.findAllWithOrderDetails();
+        return ResponseEntity.ok(tables);
+
+//        return ResponseEntity.ok(tableRepository.findAll());
     }
 
     @PutMapping("/{id}")

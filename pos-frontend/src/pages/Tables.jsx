@@ -7,6 +7,18 @@ import {keepPreviousData, useQuery} from "@tanstack/react-query";
 import {enqueueSnackbar} from "notistack";
 import {getTables} from "../https/index.js";
 
+const getInitials = (name, tableNo) => {
+    if (name) {
+        return name
+            .split(' ')
+            .filter(Boolean)
+            .map(part => part[0])
+            .join('')
+            .toUpperCase();
+    }
+    return `T${tableNo}`;
+};
+
 function Tables() {
 
     const [status, setStatus] = useState("All");
@@ -19,7 +31,7 @@ function Tables() {
         placeholderData: keepPreviousData
     });
 
-    if (isError) {
+        if (isError) {
         enqueueSnackbar("Something went wrong!", { variant: "error"});
     }
 
@@ -46,7 +58,10 @@ function Tables() {
                                 id={table._id}
                                 name={table.tableNo}
                                 status={table.status}
-                                initials={"AM"}
+                                initials={getInitials(
+                                    table.currentOrder?.customerDetails?.name,
+                                    table.tableNo
+                                )}
                                 seats={table.seats}
                             />
                         )
