@@ -13,6 +13,8 @@ public class Table {
     @Id
     private String id;
 
+    private String name;
+
     @Indexed(unique = true)
     private Integer tableNo;
 

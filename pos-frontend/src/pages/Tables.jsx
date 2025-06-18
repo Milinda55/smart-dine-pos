@@ -35,7 +35,8 @@ function Tables() {
         enqueueSnackbar("Something went wrong!", { variant: "error"});
     }
 
-    console.log(resData)
+    // console.log(resData)
+    console.log("Full API response:", resData?.data);
 
     return (
         <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden">
@@ -57,11 +58,13 @@ function Tables() {
                                 key={table._id}
                                 id={table._id}
                                 name={table.tableNo}
+                                customerName={table.name}
                                 status={table.status}
-                                initials={getInitials(
-                                    table.currentOrder?.customerDetails?.name,
-                                    table.tableNo
-                                )}
+                                initials={getInitials(table.name, table.tableNo)}
+                                // initials={getInitials(
+                                //     table.currentOrder?.customerDetails?.name,
+                                //     table.tableNo
+                                // )}
                                 seats={table.seats}
                             />
                         )

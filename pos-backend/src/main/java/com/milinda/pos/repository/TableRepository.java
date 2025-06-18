@@ -17,9 +17,8 @@ public interface TableRepository extends MongoRepository<Table, String> {
                     "tableNo: 1, " +
                     "status: 1, " +
                     "seats: 1, " +
-                    "currentOrder: { " +
-                    "customerDetails: 1" +
-                    "}" +
+                    "name: 1, " +
+                    "'currentOrder': 1" +
                     "} }"
     })
     List<Table> findAllWithOrderDetails();
