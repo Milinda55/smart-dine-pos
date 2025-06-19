@@ -38,6 +38,7 @@ public class SecurityConfig {
                                 "/api/user/login",
                                 "/api/user/logout",
                                 "/api/table",
+                                "/api/payment",
                                 "/error"
                         ).permitAll()
 

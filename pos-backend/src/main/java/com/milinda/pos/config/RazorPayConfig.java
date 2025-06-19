@@ -14,6 +14,10 @@ public class RazorPayConfig {
     private String keyId;
     private String keySecret;
 
+    public static String getKeySecret() {
+        return  RazorPayConfig.getKeySecret();
+    }
+
     @Bean
     public RazorpayClient razorpayClient() throws RazorpayException {
         return new RazorpayClient(keyId, keySecret);

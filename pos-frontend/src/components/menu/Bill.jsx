@@ -49,7 +49,7 @@ function Bill() {
             }
 
             const reqData = {
-                amount: totalPriceWithTax,
+                amount: totalPriceWithTax * 100,
                 currency: "LKR",
             };
             const { data } = await createOrderRazorpay(reqData);
