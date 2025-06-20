@@ -1,67 +1,94 @@
-# 🍽️ Smart Dine POS - Full Stack Restaurant Point of Sale System
+# 🍽️ Smart Dine POS - Restaurant Management System
 
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2-green?logo=spring)
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-20-green?logo=node.js)
-![Express](https://img.shields.io/badge/Express.js-4.x-black?logo=express)
 ![MongoDB](https://img.shields.io/badge/MongoDB-6.x-darkgreen?logo=mongodb)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-purple?logo=tailwind-css)
+![Razorpay](https://img.shields.io/badge/Razorpay-Payment_Gateway-blueviolet)
+![Ngrok](https://img.shields.io/badge/Ngrok-Tunneling-orange)
 
-A modern, full-stack POS system tailored for restaurants, built with the MERN stack. Streamlines order handling, billing, and inventory — all in one platform.
+A modern restaurant POS system with Spring Boot backend and React frontend, featuring integrated payment processing via Razorpay.
+
+![Home Interface](home-interface.png)
+![Admin Dashboard](admin-dashboard.png)
+![Order Interface](order-interface.png)
+![Payment Interface](payment-interface.png)
 
 ---
 
 ## ✨ Features
 
-### 🧾 Front-of-House (Waiter/Cashier)
-- **Table-wise Order Management**
-- **Live Order Status Tracking**
-- **Multi-item Billing System**
-- **Responsive UI** for tablet or desktop use
-- **Customer Notes & Special Requests**
+### 🧾 Frontend (React)
+- Table management with drag-and-drop
+- Real-time order tracking
+- Bill splitting and payment processing
+- Responsive design for all devices
 
-### 🔐 Admin Dashboard
-- Menu & Category Management (CRUD)
-- Staff Role Control & Access
-- Inventory Tracking & Alerts
-- Daily Sales Reports
-- Secure Login with JWT
+### ⚙️ Backend (Spring Boot)
+- JWT authentication
+- Razorpay payment integration
+- Webhook verification
+- MongoDB data persistence
+- Ngrok tunneling for development
+
+### 🔐 Admin Features
+- Menu CRUD operations
+- Staff role management
+- Sales analytics dashboard
+- Inventory monitoring
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer          | Technology               |
-|----------------|--------------------------|
-| **Frontend**   | React 18 + Tailwind CSS  |
-| **Backend**    | Node.js + Express        |
-| **Database**   | MongoDB                  |
-| **Auth**       | JWT (JSON Web Tokens)    |
-| **Deployment** | Vercel (Client), Render (API) |
+| Component         | Technology                          |
+|-------------------|-------------------------------------|
+| **Frontend**      | React 18 + Tailwind CSS             |
+| **Backend**       | Spring Boot 3.2                     |
+| **Database**      | MongoDB Atlas                       |
+| **Payment**       | Razorpay API                        |
+| **Auth**          | JWT + Spring Security               |
+| **Dev Tools**     | Ngrok, Postman                      |
+| **Deployment**    | AWS EC2 (Backend), Vercel (Frontend)|
 
 ---
 
-## 📁 Project Structure
+## 🔌 System Architecture
 
 ```bash
-resto-pos-mern/
-├── client/               # React Frontend
-│   ├── public/
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── context/      # Auth / Cart Context
-│       └── App.jsx
-├── server/               # Node + Express Backend
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   ├── middleware/
-│   └── server.js
-├── .env
-├── .gitignore
-├── package.json
+smart-dine-pos/
+├── frontend/ # React Application
+│ ├── public/
+│ └── src/
+│ ├── components/
+│ ├── pages/
+│ └── services/ # API Service Layer
+│
+├── backend/ # Spring Boot Application
+│ ├── src/main/java/
+│ │ ├── config/ # Security & Razorpay config
+│ │ ├── controller/ # API Controllers
+│ │ ├── dto/ # Data Transfer Objects
+│ │ ├── model/ # MongoDB Entities
+│ │ ├── repository/ # Spring Data Repositories
+│ │ └── service/ # Business Logic
+│ └── resources/
+│ ├── application.yml
+│ └── razorpay.yml
+│
+├── ngrok/ # Tunneling Configuration
 └── README.md
 ```
+
+---
+
+## 🔐 Security Implementation
+
+- **JWT Authentication** with Spring Security
+- **Razorpay Webhook Verification** using HMAC-SHA256
+- **Environment-based** configuration
+- **Rate limiting** on sensitive endpoints
+- **CSRF protection** for web forms
+
 
 ## 🚨 Key Challenges Solved
 
@@ -73,15 +100,6 @@ Middleware enforces admin/waiter/cashier permissions for secure route protection
 
 ### ✅ Inventory Auto-Decrement
 Ingredient stock updates dynamically as dishes are sold.
-
----
-
-## 🔐 Security Features
-
-- Encrypted JWT tokens for session management
-- Environment-based config with `.env`
-- Express Rate Limiting on login endpoints
-- Data validation with `express-validator`
 
 ---
 
@@ -102,12 +120,12 @@ git clone https://github.com/Milinda55/smart-dine-pos.git
 cd resto-pos-mern
 
 # Backend Setup
-cd server
+cd pos-backend
 npm install
 npm run dev
 
 # Frontend Setup
-cd ../client
+cd ../pos-frontend
 npm install
 npm start
 ```
