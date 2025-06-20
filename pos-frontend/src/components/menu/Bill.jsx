@@ -103,12 +103,12 @@ function Bill() {
                 <h1 className="text-[#f5f5f5] text-md font-bold">Rs.{totalPriceWithTax.toFixed(2)}</h1>
             </div>
             <div className="flex items-center gap-3 px-5 mt-4">
-                <button onClick={() => setPaymentMethod("Cash")} className={`bg-[#1f1f1f] px-4 py-2 w-full rounded-lg text-[#ababab] font-semibold ${paymentMethod === "Cash" ? "bg-[#383737]" : ""}`}>Cash</button>
-                <button onClick={() => setPaymentMethod("Online")} className={`bg-[#1f1f1f] px-4 py-2 w-full rounded-lg text-[#ababab] font-semibold ${paymentMethod === "Online" ? "bg-[#383737]" : ""}`}>Online</button>
+                <button onClick={() => setPaymentMethod("Cash")} className={`bg-[#1f1f1f] cursor-pointer px-4 py-2 w-full rounded-lg text-[#ababab] font-semibold ${paymentMethod === "Cash" ? "bg-[#383737]" : ""}`}>Cash</button>
+                <button onClick={() => setPaymentMethod("Online")} className={`bg-[#1f1f1f] cursor-pointer px-4 py-2 w-full rounded-lg text-[#ababab] font-semibold ${paymentMethod === "Online" ? "bg-[#383737]" : ""}`}>Online</button>
             </div>
             <div className="flex items-center gap-3 px-5 mt-4">
-                <button className="bg-[#025cca] px-4 py-2 w-full rounded-lg text-[#f5f5f5] font-semibold text-lg">Print Receipt</button>
-                <button onClick={handlePlaceOrder} className="bg-[#f6b100] px-4 py-2 w-full rounded-lg text-[#1f1f1f] font-semibold text-lg">Place Order</button>
+                <button className="bg-[#025cca] px-4 py-2 w-full rounded-lg text-[#f5f5f5] cursor-pointer font-semibold text-lg">Print Receipt</button>
+                <button onClick={handlePlaceOrder} className="bg-[#f6b100] px-4 py-2 w-full cursor-pointer rounded-lg text-[#1f1f1f] font-semibold text-lg">Place Order</button>
             </div>
         </>
     );

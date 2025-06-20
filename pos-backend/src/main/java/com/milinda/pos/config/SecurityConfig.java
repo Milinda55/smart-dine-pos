@@ -45,6 +45,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/order").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/order/**").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/api/order/**").authenticated()
+                        .requestMatchers("/api/payment/verify-payment").authenticated()
 
                         .anyRequest().authenticated()
                 )
